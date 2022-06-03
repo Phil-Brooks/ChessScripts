@@ -4,10 +4,10 @@ using DelimitedFiles
 include("best.jl")
 
 bestdictfl = raw"D:\lc0\julia\lc0white10.txt"
-codefl1 = raw"D:\Github\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData1.kt"
-codefl2 = raw"D:\Github\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData2.kt"
-codefl3 = raw"D:\Github\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData3.kt"
-codefl4 = raw"D:\Github\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData4.kt"
+codefl1 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData1.kt"
+codefl2 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData2.kt"
+codefl3 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData3.kt"
+codefl4 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData4.kt"
 
 lines = readlines(bestdictfl)
 dct = Best.loaddict(lines)
