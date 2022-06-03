@@ -1,6 +1,6 @@
 using Chess
 
-include(raw"D:\Github\JuliaScripts\best.jl")
+include(raw"D:\Github\ChessScripts\julia\best.jl")
 
 bestdictfl = raw"D:\lc0\julia\e3.txt"
 
@@ -8,35 +8,43 @@ dct = Best.getdict(bestdictfl)
 cbd = startboard()
 bmrs = dct[fen(cbd)]
 
+function setbd(bd)
+    global cbd = bd
+    global bmrs = haskey(dct, fen(cbd)) ? dct[fen(cbd)] : Best.Bmresps("NOT FOUND", [])
+    println(bmrs)
+    cbd
+end
 
-function dobm()
+function b()
+    println(bmrs)
     domove(cbd, bmrs.BestMove)
+end
+
+function f(fn)
+    setbd(fromfen(fn))
 end
 
 function n(r)
     if r==""
-        global cbd = startboard()
-        global bmrs = dct[fen(cbd)]
-        println(bmrs)
-        cbd
+        setbd(startboard())
     else
-        nbd = domove(cbd, bmrs.BestMove)
-        global cbd = domove(nbd, r)
-        global bmrs = haskey(dct, fen(cbd)) ? dct[fen(cbd)] : Best.Bmresps("NOT FOUND", [])
-        println(bmrs)
-        cbd
+        nbd = bmrs.BestMove=="" ? cbd : domove(cbd, bmrs.BestMove)
+        setbd(domove(nbd, r))
     end
 end
 
-function add()
+function a()
     Best.addboard(cbd, dct)
     Best.savedict(bestdictfl, dct)
-    global bmrs = dct[fen(cbd)]
-    println(bmrs)
-    cbd
+    setbd(cbd)
 end
 
 Base.:!(r::String) = n(r)
 Base.:!(r::Integer) = n(r==0 ? "" : bmrs.Replies[r])
 
-#!0
+# Options
+# !n - move forward based on nth response
+# !0 - go to start
+# b() - play best move
+# a() - add for missing board
+# f(fen) - go to board of the FEN fen
