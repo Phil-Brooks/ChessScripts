@@ -39,6 +39,12 @@ function a()
     setbd(cbd)
 end
 
+function sb(bm)
+    Best.setbm(bm, cbd, dct)
+    Best.savedict(bestdictfl, dct)
+    setbd(cbd)
+end
+
 Base.:!(r::String) = n(r)
 Base.:!(r::Integer) = n(r==0 ? "" : bmrs.Replies[r])
 
@@ -48,3 +54,4 @@ Base.:!(r::Integer) = n(r==0 ? "" : bmrs.Replies[r])
 # b() - play best move
 # a() - add for missing board
 # f(fen) - go to board of the FEN fen
+# sb(bm) - replace best move with bm

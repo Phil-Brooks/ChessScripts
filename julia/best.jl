@@ -85,5 +85,11 @@ function expand(dct)
     dct
 end
 
+function setbm(bm, bd, dct)
+    nbd = domove(bd, bm)
+    sans = OpenExp.getmoves(fen(nbd))
+    bmresp = Best.Bmresps(bm, sans)
+    dct[fen(bd)] = bmresp
+end
 
 end
