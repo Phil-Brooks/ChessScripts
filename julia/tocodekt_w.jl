@@ -3,7 +3,7 @@ using DelimitedFiles
 
 include("best.jl")
 
-bestdictfl = raw"D:\lc0\julia\e3.txt"
+bestdictfl = raw"D:\lc0\julia\d4.txt"
 codefl1 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData1.kt"
 codefl2 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData2.kt"
 codefl3 = raw"D:\Github\ChessScripts\android\BestWhiteAnd\app\src\main\java\com\example\bestwhiteand\ChessData3.kt"

@@ -3,11 +3,11 @@ using Chess
 include("best.jl")
 include("openexp.jl")
 
-bestdictfl = raw"D:\lc0\julia\e3.txt"
+bestdictfl = raw"D:\lc0\julia\d4.txt"
 
 function initialise()
     bd = startboard()
-    bm = "e3"
+    bm = "d4"
     nbd = domove(bd, bm)
     sans = OpenExp.getmoves(fen(nbd))
     bmresp = Best.Bmresps(bm, sans)

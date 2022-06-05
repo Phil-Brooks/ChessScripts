@@ -2,7 +2,7 @@ using Chess
 
 include(raw"D:\Github\ChessScripts\julia\best.jl")
 
-bestdictfl = raw"D:\lc0\julia\e3.txt"
+bestdictfl = raw"D:\lc0\julia\d4.txt"
 
 dct = Best.getdict(bestdictfl)
 cbd = startboard()
