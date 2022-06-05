@@ -1,4 +1,8 @@
-bestdictfl = raw"D:\lc0\julia\d4.txt"
+include("best.jl")
+
+using Chess
+
+bestdictfl = raw"D:\lc0\julia\e6.txt"
 
 function dct2fens(k,v)
     bd = fromfen(k)
@@ -9,9 +13,17 @@ function dct2fens(k,v)
 end
 
 dct = Best.getdict(bestdictfl)
-ofens = reduce(hcat, dct2fens.(dct))
+
+ofens = []
+for (k,v) in dct
+    fena = dct2fens(k,v)
+    append!(ofens, fena)
+end
+
+length(ofens)
+
 oset = Set(ofens)
-iset = Set(map((k,v) -> k, dct))
+iset = Set(keys(dct))
 
 odct = deepcopy(dct)
 orphans = setdiff(iset, oset)
