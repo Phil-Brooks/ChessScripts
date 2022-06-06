@@ -3,7 +3,8 @@ module Best
 using Chess
 using DelimitedFiles
 
-include("leela.jl")
+#include("leela.jl")
+include("stock.jl")
 include("openexp.jl")
 
 
@@ -53,7 +54,8 @@ end
 
 function addboard(bd, dct)
     if !haskey(dct,fen(bd))
-        bm = Leela.getbestmove(bd)
+        #bm = Leela.getbestmove(bd)
+        bm = Stock.getbestmove(bd)
         nbd = domove(bd, bm)
         sans = OpenExp.getmoves(fen(nbd))
         bmresp = Best.Bmresps(bm, sans)

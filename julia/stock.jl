@@ -8,7 +8,7 @@ function getbestmove(bd)
     setoption(sf, "Threads", 12)
     newgame(sf)
     setboard(sf, bd)
-    ans = search(sf, "go movetime 10000", infoaction=println) #nothing)
+    ans = search(sf, "go movetime 10000", infoaction=nothing)
     bm = ans.bestmove
     quit(sf)
     movetosan(bd, bm)
